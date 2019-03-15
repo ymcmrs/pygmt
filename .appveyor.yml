@@ -11,9 +11,9 @@ branches:
 
 environment:
     global:
-        - GMT_URL: http://w3.ualg.pt/~jluis/mirone/GMT-6.0.0_20190102-win64.exe
-          GMT_INSTALL_HOME: C:\projects\gmt
-          GMT_LIBRARY_PATH: C:\projects\gmt\bin
+        GMT_URL: http://w3.ualg.pt/~jluis/mirone/GMT-6.0.0_20190102-win64.exe
+        GMT_INSTALL_HOME: C:\projects\gmt
+        GMT_LIBRARY_PATH: C:\projects\gmt\bin
     matrix:
         - MINICONDA: C:\Miniconda36-x64
           PYTHON: 3.6
