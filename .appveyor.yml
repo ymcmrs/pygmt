@@ -32,11 +32,13 @@ install:
     - cmd: git clone https://github.com/fatiando/continuous-integration.git
     # Setup miniconda and install the requirements into a new environment
     - cmd: continuous-integration\appveyor\setup-miniconda.bat
+    # Activate the new environment
+    - cmd: activate testing
     # Show installed pkg information for postmortem diagnostic
     - cmd: conda list
     # Package and install
     - cmd: python setup.py bdist_wheel
-    - pip install dist/*
+    - cmd: pip install dist/*
 
 test_script:
     # Run the tests inside a tmp folder to make sure we're testing the installed version
