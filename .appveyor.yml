@@ -44,6 +44,7 @@ install:
     - cmd: C:\projects\gmt-6.0.0-win64.exe /S /D=%GMT_INSTALL_HOME%
     - cmd: "set PATH=%PATH%;%oldPATH%"
     - cmd: echo %PATH%
+    - cmd: dir %GMT_LIBRARY_PATH%
     # Get the Fatiando CI scripts
     - cmd: git clone https://github.com/fatiando/continuous-integration.git
     # Setup miniconda and install the requirements into a new environment
