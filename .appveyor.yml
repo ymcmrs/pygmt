@@ -36,9 +36,10 @@ install:
     - cmd: activate testing
     # Show installed pkg information for postmortem diagnostic
     - cmd: conda list
-    # Package and install
-    - cmd: python setup.py bdist_wheel
-    - cmd: pip install dist/*
+    # Make a source package for the project and install it
+    - cmd: python setup.py sdist --formats=zip
+    - ps: ls dist
+    - ps: pip install --no-deps (Get-ChildItem dist\*.zip)
 
 test_script:
     # Run the tests inside a tmp folder to make sure we're testing the installed version
