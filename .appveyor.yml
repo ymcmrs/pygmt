@@ -33,7 +33,7 @@ init:
 
 install:
     # Install GMT
-    - ps: appveyor DownloadFile %GMT_URL% -FileName "C:\projects\gmt-6.0.0-win64.exe"
+    - cmd: curl -fsS -o C:\projects\gmt-6.0.0-win64.exe %GMT_URL%
     - cmd: C:\projects\gmt-6.0.0-win64.exe /S /D=%GMT_INSTALL_HOME%
     # Get the Fatiando CI scripts
     - cmd: git clone https://github.com/fatiando/continuous-integration.git
