@@ -9,6 +9,9 @@ branches:
         - master
         - appveyor
 
+cache:
+    - C:\projects\gmt
+
 environment:
     global:
         GMT_URL: "http://w3.ualg.pt/~jluis/mirone/GMT-6.0.0_20190102-win64.exe"
@@ -40,6 +43,7 @@ init:
 
 install:
     # Install GMT
+    - cmd: if exist "%GMT_INSTALL_HOME%" echo GMT already installed
     - cmd: curl -fsS -o C:\projects\gmt-6.0.0-win64.exe %GMT_URL%
     - cmd: C:\projects\gmt-6.0.0-win64.exe /S /D=%GMT_INSTALL_HOME%
     - cmd: "set PATH=%PATH%;%oldPATH%"
