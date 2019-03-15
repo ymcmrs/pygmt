@@ -29,7 +29,9 @@ environment:
 
 init:
     # Add miniconda to the PATH
+    - "set oldPATH=%PATH%"
     - echo %PATH%
+    - echo %oldPATH%
     - "set PATH=C:\\Program Files\\Git\\cmd;C:\\Program Files\\Git\\usr\\bin;C:\\Tools\\curl\\bin;"
     - echo %PATH%
     - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%MINICONDA%\\Library\\bin;%PATH%"
@@ -40,6 +42,8 @@ install:
     # Install GMT
     - cmd: curl -fsS -o C:\projects\gmt-6.0.0-win64.exe %GMT_URL%
     - cmd: C:\projects\gmt-6.0.0-win64.exe /S /D=%GMT_INSTALL_HOME%
+    - cmd: "set PATH=%PATH%;%oldPATH%"
+    - cmd: echo %PATH%
     # Get the Fatiando CI scripts
     - cmd: git clone https://github.com/fatiando/continuous-integration.git
     # Setup miniconda and install the requirements into a new environment
