@@ -32,6 +32,9 @@ init:
     - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%MINICONDA%\\Library\\bin;%PATH%"
 
 install:
+    # Install GMT
+    - ps: appveyor DownloadFile %GMT_URL% -FileName "C:\projects\gmt-6.0.0-win64.exe"
+    - cmd: C:\projects\gmt-6.0.0-win64.exe /S /D=%GMT_INSTALL_HOME%
     # Get the Fatiando CI scripts
     - cmd: git clone https://github.com/fatiando/continuous-integration.git
     # Setup miniconda and install the requirements into a new environment
@@ -44,9 +47,6 @@ install:
     - cmd: python setup.py sdist --formats=zip
     - ps: ls dist
     - ps: pip install --no-deps (Get-ChildItem dist\*.zip)
-    # Install GMT
-    - ps: appveyor DownloadFile %GMT_URL% -FileName "C:\projects\gmt-6.0.0-win64.exe"
-    - cmd: C:\projects\gmt-6.0.0-win64.exe /S /D=%GMT_INSTALL_HOME%
 
 test_script:
     # Run the tests inside a tmp folder to make sure we're testing the installed version
