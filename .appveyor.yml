@@ -30,7 +30,7 @@ environment:
 init:
     # Add miniconda to the PATH
     - echo %PATH%
-    - "set PATH=C:\\Program Files\\Git\\cmd;C:\\Program Files\\Git\\usr\\bin;"
+    - "set PATH=C:\\Program Files\\Git\\cmd;C:\\Program Files\\Git\\usr\\bin;C:\\Tools\\curl\\bin;"
     - echo %PATH%
     - "set PATH=%MINICONDA%;%MINICONDA%\\Scripts;%MINICONDA%\\Library\\bin;%PATH%"
     - echo %PATH%
